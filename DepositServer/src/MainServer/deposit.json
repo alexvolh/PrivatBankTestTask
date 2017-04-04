@@ -3,12 +3,12 @@
     "accountId": 13434,
     "name": "PrivatBank",
     "country": "Ukraine",
-    "Depositor": "Alex",
+    "Depositor": "Voloshyn",
     "typeDeposit": "DEMAND",
     "amountDeposit": 4356.75,
     "profitability": 12.5,
     "finishDate": {
-      "year": 2017,
+      "year": 2022,
       "month": 3,
       "day": 30
     }
@@ -29,8 +29,8 @@
   },
   {
     "accountId": 709,
-    "name": "UBR",
-    "country": "UK",
+    "name": "Barclays",
+    "country": "United Kingdom",
     "Depositor": "Alex",
     "typeDeposit": "SAVINGS",
     "amountDeposit": 2000.67,
@@ -59,7 +59,7 @@
     "accountId": 328,
     "name": "PrivatBank",
     "country": "Ukraine",
-    "Depositor": "Alex",
+    "Depositor": "Voloshyn",
     "typeDeposit": "METAL",
     "amountDeposit": 1000.0,
     "profitability": 25.0,
@@ -80,6 +80,34 @@
     "finishDate": {
       "year": 2017,
       "month": 3,
+      "day": 12
+    }
+  },
+  {
+    "accountId": 5577,
+    "name": "America Bank",
+    "country": "USA",
+    "Depositor": "John Dou",
+    "typeDeposit": "SAVINGS",
+    "amountDeposit": 20000.0,
+    "profitability": 14.3,
+    "finishDate": {
+      "year": 2022,
+      "month": 12,
+      "day": 3
+    }
+  },
+  {
+    "accountId": 1455,
+    "name": "1Bank",
+    "country": "ciprus",
+    "Depositor": "Aristotis",
+    "typeDeposit": "ACCUMULATIVE",
+    "amountDeposit": 23455.5,
+    "profitability": 20.4,
+    "finishDate": {
+      "year": 2019,
+      "month": 2,
       "day": 12
     }
   }
