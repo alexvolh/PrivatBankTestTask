@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-public class CreateDepositObj {
+class CreateDepositObj {
     private long id;
     private String name;
     private String country;
@@ -20,27 +20,49 @@ public class CreateDepositObj {
     private BufferedReader bufferedReader;
     private boolean isWrongType;
 
-    public CreateDepositObj() {
-        this.id = generateId();
+    CreateDepositObj() {
         this.bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         isWrongType = true;
     }
-    private long generateId() {
-        System.out.println("generate your id ...");
-        long lowerRange = 1000;
-        long upperRange = 10000;
-        Random random = new Random();
+    private void generateId() {
+        String in = "";
+        System.out.println("autogenerate your id (y) or input by hand (n) ... yes or no ?");
+        try {
+            in = bufferedReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (in.equals("y") || in.equals("yes")) {
+            long lowerRange = 1000;
+            long upperRange = 10000;
+            Random random = new Random();
 
-        long randomValue = lowerRange + (long)(random.nextDouble() * (upperRange - lowerRange));
-        System.out.println("your id is: " + randomValue);
-        return randomValue;
+            id = lowerRange + (long)(random.nextDouble() * (upperRange - lowerRange));
+            System.out.println("your id is: " + id);
+        } else if (in.equals("n") || in.equals("no")) {
+            do {
+                try {
+                    System.out.print("enter your id: ");
+                    in = bufferedReader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    id = Long.parseLong(in);
+                    isWrongType = false;
+                } catch (NumberFormatException e) {
+                    System.out.println("invalid value !");
+                    isWrongType = true;
+                }
+            } while (isWrongType);
+        }
     }
 
-    public long getId() {
+    long getId() {
         return id;
     }
 
-    public void setName() {
+    private void setName() {
         System.out.print("enter the name of a bank: ");
         String nameOfBank = null;
         try {
@@ -51,11 +73,11 @@ public class CreateDepositObj {
         name = nameOfBank;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setCountry() {
+    private void setCountry() {
         System.out.print("enter country of registration of a bank: ");
         String countryOfBank = null;
         try {
@@ -66,11 +88,11 @@ public class CreateDepositObj {
         country = countryOfBank;
     }
 
-    public String getCountry() {
+    String getCountry() {
         return country;
     }
 
-    public void setType() {
+    private void setType() {
         do {
             System.out.println("enter type of deposit: |DEMAND| |TERM| |SETTELMET| |ACCUMULATIVE| |SAVINGS| |METAL|");
             String typeOfDeposit = null;
@@ -113,11 +135,11 @@ public class CreateDepositObj {
         } while (isWrongType);
     }
 
-    public DepositObj.Type getType() {
+    DepositObj.Type getType() {
         return type;
     }
 
-    public void setDepositor() {
+    private void setDepositor() {
         System.out.print("enter name of depositor: ");
         String depositorName = null;
         try {
@@ -129,11 +151,11 @@ public class CreateDepositObj {
 
     }
 
-    public String getDepositor() {
+    String getDepositor() {
         return depositor;
     }
 
-    public void setAmountDeposit() {
+    private void setAmountDeposit() {
         String amount = null;
         isWrongType = true;
         do {
@@ -161,11 +183,11 @@ public class CreateDepositObj {
         } while (isWrongType);
     }
 
-    public double getAmountDeposit() {
+    double getAmountDeposit() {
         return amountDeposit;
     }
 
-    public void setProfitability() {
+    private void setProfitability() {
         String profit = null;
         isWrongType = true;
         do {
@@ -193,12 +215,12 @@ public class CreateDepositObj {
         } while (isWrongType);
     }
 
-    public double getProfitability() {
+    double getProfitability() {
         return profitability;
     }
 
 
-    public void setFinishDate() {
+    private void setFinishDate() {
         isWrongType = true;
         do {
             System.out.print("enter date in next format\"dd/MM/yyyy\": ");
@@ -216,12 +238,13 @@ public class CreateDepositObj {
         } while (isWrongType);
     }
 
-    public LocalDate getFinishDate() {
+    LocalDate getFinishDate() {
         return finishDate;
     }
 
 
-    public void run() {
+    void run() {
+        this.generateId();
         this.setName();
         this.setCountry();
         this.setType();
