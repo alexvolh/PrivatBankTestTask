@@ -26,36 +26,42 @@ class CreateDepositObj {
     }
     private void generateId() {
         String in = "";
-        System.out.println("autogenerate your id (y) or input by hand (n) ... yes or no ?");
-        try {
-            in = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (in.equals("y") || in.equals("yes")) {
-            long lowerRange = 1000;
-            long upperRange = 10000;
-            Random random = new Random();
+        do {
+            System.out.println("autogenerate your id (y) or input by hand (n) ... yes or no ?");
+            try {
+                in = bufferedReader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (in.equals("y") || in.equals("yes")) {
+                long lowerRange = 1000;
+                long upperRange = 10000;
+                Random random = new Random();
 
-            id = lowerRange + (long)(random.nextDouble() * (upperRange - lowerRange));
-            System.out.println("your id is: " + id);
-        } else if (in.equals("n") || in.equals("no")) {
-            do {
-                try {
-                    System.out.print("enter your id: ");
-                    in = bufferedReader.readLine();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    id = Long.parseLong(in);
-                    isWrongType = false;
-                } catch (NumberFormatException e) {
-                    System.out.println("invalid value !");
-                    isWrongType = true;
-                }
-            } while (isWrongType);
-        }
+                id = lowerRange + (long) (random.nextDouble() * (upperRange - lowerRange));
+                System.out.println("your id is: " + id);
+                break;
+            } else if (in.equals("n") || in.equals("no")) {
+                do {
+                    try {
+                        System.out.print("enter your id: ");
+                        in = bufferedReader.readLine();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        id = Long.parseLong(in);
+                        isWrongType = false;
+                    } catch (NumberFormatException e) {
+                        System.out.println("invalid value !");
+                        isWrongType = true;
+                    }
+                } while (isWrongType);
+                break;
+            } else {
+                System.out.println("wrong command !");
+            }
+        } while (true);
     }
 
     long getId() {
