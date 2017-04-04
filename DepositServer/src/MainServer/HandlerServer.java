@@ -38,7 +38,6 @@ public class HandlerServer implements Runnable {
                 DepositObjOperation depositObjOperation = new DepositObjOperation();
 
                 if (message != null) {
-
                     //add new deposit
                     if (message.length() > 11 && message.substring(2, 11).equals("accountId")) { //if string contains accountId
                         out.println(depositObjOperation.addDeposit(message));
