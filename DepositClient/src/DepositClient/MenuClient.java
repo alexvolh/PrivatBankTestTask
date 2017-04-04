@@ -18,12 +18,11 @@ class MenuClient {
             System.out.printf("%-4s %-30s %-1s", "- 2", "|sum|", "sum of all deposits\n");
             System.out.printf("%-4s %-30s %-1s", "- 3", "|count|", "count of all deposits\n");
             System.out.printf("%-4s %-30s %-1s", "- 4", "|info account <account id>|", "information of personal account by id\n");
-            System.out.printf("%-4s %-30s %-1s", "- 5", "|info depositor <depositor>|", "information of an investor\n");
+            System.out.printf("%-4s %-30s %-1s", "- 5", "|info depositor <depositor>|", "information of an depositor\n");
             System.out.printf("%-4s %-30s %-1s", "- 6", "|show type <type>|", "list of all deposits of specified type (|DEMAND| |TERM| |SETTELMET| |ACCUMULATIVE| |SAVINGS| |METAL|)\n");
             System.out.printf("%-4s %-30s %-1s", "- 7", "|show bank <name>|", "list of all deposits of specified bank\n");
-            System.out.printf("%-4s %-30s %-1s", "- 8", "|add <deposit info>|", "add additional information to deposit\n");
-            System.out.printf("%-4s %-30s %-1s", "- 9", "|delete <account id>|", "remove specified id\n");
-            System.out.printf("%-4s %-30s %-1s", "- 10","|exit|", "close program\n");
+            System.out.printf("%-4s %-30s %-1s", "- 8", "|delete <account id>|", "remove specified id\n");
+            System.out.printf("%-4s %-30s %-1s", "- 9","|exit|", "close program\n");
 
             try {
                 do {
